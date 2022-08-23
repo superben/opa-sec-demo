@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: opa-sec-demo
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+#          issuer-uri: http://localhost:8080/realms/master
+          jwk-set-uri: http://localhost:8080/realms/master/protocol/openid-connect/certs
+
+#  From the following url get keylock metadata:
+#  http://localhost:8080/realms/master/.well-known/openid-configuration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
